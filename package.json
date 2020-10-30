@@ -1,0 +1,28 @@
+{
+  "name": "tellers_2.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladimirnikev/Tellers_2.0.git"
+  },
+  "author": "Vladimir Nikev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vladimirnikev/Tellers_2.0/issues"
+  },
+  "homepage": "https://github.com/vladimirnikev/Tellers_2.0#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-watch": "^5.0.1"
+  }
+}
