@@ -64,7 +64,7 @@ function addSrc(src, action) {
     // let videoInModal = document.querySelector('.vimeo_block');
     videoInModal.src = src;
 
-    // openModalOrClose(action);
+    openModalOrClose(action);
 }
 
 
@@ -89,27 +89,27 @@ document.body.addEventListener('click', (e) => {
             //     addSrc('https://player.vimeo.com/video/474605466?autoplay=1&title=0&byline=0&portrait=0"', 'openning');
             // }
             else if (el.id === 'atelier') {
-                addSliderButtons(3, 'https://player.vimeo.com/video/474657541?autoplay=1&title=0&byline=0&portrait=0"', 'https://player.vimeo.com/video/474657541?autoplay=1&title=0&byline=0&portrait=0"', 'https://player.vimeo.com/video/474657541?autoplay=1&title=0&byline=0&portrait=0"');
+                addSliderButtons(3, 'https://player.vimeo.com/video/474657541?title=0&byline=0&portrait=0"', 'https://player.vimeo.com/video/474657541?autoplay=1&title=0&byline=0&portrait=0"', 'https://player.vimeo.com/video/474657541?autoplay=1&title=0&byline=0&portrait=0"');
                 // addSrc('https://player.vimeo.com/video/474657541?autoplay=1&title=0&byline=0&portrait=0"', 'openning');
                 openModalOrClose('openning');
             } else if (el.id === 'barly') {
-                addSrc('https://player.vimeo.com/video/474603570?autoplay=1&title=0&byline=0&portrait=0"', 'openning');
+                addSrc('https://player.vimeo.com/video/474603570?title=0&byline=0&portrait=0"', 'openning');
             } else if (el.id === 'belenko') {
-                addSrc('https://player.vimeo.com/video/474604827?autoplay=1&title=0&byline=0&portrait=0"', 'openning');
+                addSrc('https://player.vimeo.com/video/474604827?title=0&byline=0&portrait=0"', 'openning');
             } else if (el.id === 'bella') {
-                addSrc('https://player.vimeo.com/video/474601134?autoplay=1&title=0&byline=0&portrait=0"', 'openning');
+                addSrc('https://player.vimeo.com/video/474601134?title=0&byline=0&portrait=0"', 'openning');
             } else if (el.id === 'highFive') {
-                addSrc('https://player.vimeo.com/video/474605979?autoplay=1&title=0&byline=0&portrait=0"', 'openning');
+                addSrc('https://player.vimeo.com/video/474605979?title=0&byline=0&portrait=0"', 'openning');
             } else if (el.id === 'labaratolya') {
-                addSrc('https://player.vimeo.com/video/474660602?autoplay=1&title=0&byline=0&portrait=0"', 'openning');
+                addSrc('https://player.vimeo.com/video/474660602?title=0&byline=0&portrait=0"', 'openning');
             } else if (el.id === 'madHeads') {
-                addSrc('https://player.vimeo.com/video/474603099?autoplay=1&title=0&byline=0&portrait=0"', 'openning');
+                addSrc('https://player.vimeo.com/video/474603099?title=0&byline=0&portrait=0"', 'openning');
             } else if (el.id === 'ofm') {
-                addSrc('https://player.vimeo.com/video/474658835?autoplay=1&title=0&byline=0&portrait=0"', 'openning');
+                addSrc('https://player.vimeo.com/video/474658835?title=0&byline=0&portrait=0"', 'openning');
             } else if (el.id === 'theFitz') {
-                addSrc('https://player.vimeo.com/video/474659330?autoplay=1&title=0&byline=0&portrait=0"', 'openning');
+                addSrc('https://player.vimeo.com/video/474659330?title=0&byline=0&portrait=0"', 'openning');
             } else if (el.id === 'twlv') {
-                addSrc('https://player.vimeo.com/video/474659144?autoplay=1&title=0&byline=0&portrait=0"', 'openning');
+                addSrc('https://player.vimeo.com/video/474659144?title=0&byline=0&portrait=0"', 'openning');
             }
         }
     })
