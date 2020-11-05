@@ -1,4 +1,5 @@
 @import 'css/reset';
+@import 'scss/modal';
 
 header {
     position: fixed;
@@ -85,10 +86,10 @@ main {
     margin-top: 112px;
     display: flex;
     flex-wrap: wrap;
+    background: #050505;
 
     .video_card__wrapper {
         width: 50%;
-        // min-height: 400px;
         overflow: hidden;
     }
 
@@ -127,6 +128,7 @@ main {
             opacity: 0;
             transition: 0.6s ease;
             z-index: 3;
+            pointer-events: none;
         }
 
         &:hover {
@@ -152,16 +154,17 @@ footer {
     background-color: rgb(5, 5, 5);
     padding: 30px 0;
 
-    ul {
-        display: flex;
-        justify-content: center;
+    // ul {
+    display: flex;
+    justify-content: center;
 
-        .footer__link {
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 14px;
-            color: #f1f1f1;
-            padding: 0 20px;
-        }
+    .footer__link {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 14px;
+        color: #f1f1f1;
+        padding: 0 20px;
     }
+
+    // }
 }
