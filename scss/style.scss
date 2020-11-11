@@ -1,5 +1,22 @@
 @import 'css/reset';
 @import 'scss/modal';
+@import 'scss/fonts';
+
+:root {
+    --text-color: rgb(238, 159, 9);
+    --text-shadow: rgb(165, 0, 4);
+}
+
+body {
+    font-family: 'Impact', sans-serif;
+    font-style: italic;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
 
 header {
     position: fixed;
@@ -7,13 +24,10 @@ header {
     left: 0;
     padding: 30px 0;
     width: 100%;
-    background-color: rgb(5, 5, 5);
+    background: url('../img/bg_with_noise.png');
     z-index: 1000;
 
     .container {
-        max-width: 1200px;
-        width: 100%;
-        margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -24,26 +38,23 @@ header {
         flex-direction: column;
         text-decoration: none;
 
-        .logo__title {
-            text-transform: uppercase;
-            font-size: 34px;
-            color: #f8f8f8;
-        }
-
-        .logo__text {
-            font-size: 18px;
-            color: #f8f8f8;
+        img {
+            max-width: 160px;
         }
     }
 
     ul {
-        width: 200px;
         display: flex;
         justify-content: space-around;
 
+        li {
+            padding: 0 20px;
+        }
+
         .header__link {
-            font-size: 14px;
-            color: #f8f8f8;
+            font-size: 19px;
+            color: var(--text-color);
+            text-shadow: 2px 2px var(--text-shadow);
             text-transform: uppercase;
             text-decoration: none;
             opacity: 0.6;
@@ -57,7 +68,8 @@ header {
                 left: 0;
                 width: 100%;
                 height: 1px;
-                background-color: #f8f8f8;
+                background-color: var(--text-color);
+                box-shadow: 2px 2px var(--text-shadow);
                 transform: translate(0, 10px);
                 opacity: 0;
                 transition: 0.4s;
@@ -77,6 +89,13 @@ header {
         }
 
         .link_selected {
+            font-size: 19px;
+            color: var(--text-color);
+            text-shadow: 2px 2px var(--text-shadow);
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: opacity 0.4s;
+            position: relative;
             opacity: 1;
         }
     }
@@ -86,7 +105,8 @@ main {
     margin-top: 112px;
     display: flex;
     flex-wrap: wrap;
-    background: #050505;
+    background: url('../img/bg_with_noise.png');
+
 
     .video_card__wrapper {
         width: 50%;
@@ -150,21 +170,166 @@ main {
     }
 }
 
-footer {
-    background-color: rgb(5, 5, 5);
-    padding: 30px 0;
+// ----------- About -----------
+.about__content {
+    padding-bottom: 80px;
+    overflow: hidden;
 
-    // ul {
+    .content__wrapper {
+        display: flex;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .about__title,
+    .card__title,
+    .card__text,
+    .card__link {
+        color: var(--text-color);
+        text-shadow: 2px 2px var(--text-shadow);
+    }
+
+    .about_active {
+        transform: translate(0, 0) !important;
+        opacity: 1 !important;
+    }
+
+    .about__title {
+        display: block;
+        text-transform: uppercase;
+        font-size: 45px;
+        max-width: 320px;
+        padding: 10px;
+        border: var(--text-color) 2px solid;
+        margin-top: 30px;
+        margin-left: 80px;
+        transform: translate(-110%, 10px);
+        opacity: 0;
+
+        &.about_active {
+            transition: 1s ease;
+        }
+    }
+
+    .about_card__wrapper {
+        display: flex;
+        flex-direction: column;
+        max-width: 350px;
+        text-align: right;
+        opacity: 0;
+        padding: 0 80px;
+
+        &:first-of-type {
+            margin-top: 110px;
+            transform: translate(-100%, 0);
+
+            &.about_active {
+                transition: 0.5s ease;
+
+            }
+        }
+
+        &:nth-child(even) {
+            transform: translate(100%, 0);
+
+            &.about_active {
+                transition: 0.5s 0.5s ease;
+            }
+        }
+
+        &:last-of-type {
+            order: 4;
+            padding-right: 210px;
+            transform: translate(100%, 0);
+
+            &.about_active {
+                transition: 0.5s ease;
+            }
+        }
+
+        .card__title {
+            font-size: 38px;
+        }
+
+        .card__text {
+            font-size: 25px;
+            margin-top: 8px;
+        }
+
+        .card__link {
+            text-decoration: none;
+            display: flex;
+            align-self: flex-start;
+            align-items: center;
+            font-size: 18px;
+            text-shadow: 1px 1px var(--text-shadow);
+            margin: 8px 0 0 12px;
+            transition: 0.3s ease;
+
+            span {
+                margin-left: 5px;
+            }
+
+            &:hover {
+                transform: scale(1.25);
+                transition: 0.3s ease;
+            }
+        }
+
+        .card__img {
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+
+    .main__text {
+        display: block;
+        color: var(--text-color);
+        border: var(--text-color) 2px solid;
+        text-shadow: 2px 2px var(--text-shadow);
+        max-width: 180px;
+        padding: 10px;
+        align-self: flex-end;
+        order: 3;
+        font-size: 25px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-left: 80px;
+        transform: translate(0, -500%);
+        opacity: 0;
+
+        &.about_active {
+            transition: 0.5s 0.5s ease;
+        }
+    }
+}
+
+
+// ---------- Footer ----------
+
+footer {
+    background: url('../img/bg_with_noise.png');
+    padding: 30px 0;
     display: flex;
     justify-content: center;
 
     .footer__link {
         text-decoration: none;
-        text-transform: uppercase;
-        font-size: 14px;
-        color: #f1f1f1;
+        font-size: 30px;
+        color: var(--text-color);
+        text-shadow: 2px 2px var(--text-shadow);
         padding: 0 20px;
-    }
+        transition: 0.3s ease;
 
-    // }
+        &:hover {
+            transform: scale(1.5) rotate(-3deg);
+            transition: 0.3s ease;
+        }
+    }
 }
+
+
+
+
+@import 'scss/media';
