@@ -6,6 +6,7 @@
 // });
 
 let videoInModal = document.querySelector('.vimeo_block');
+let sliderButtons = document.querySelector('.slider_list__wrapper');
 
 function openModalOrClose(value) {
     let modalVideoPlayerWrapper = document.querySelector('.modal_video__wrapper');
@@ -30,86 +31,133 @@ function createElement(str) {
 }
 
 function addSliderButtons(number, src1, src2, src3, src4) {
-    let sliderButtons = document.querySelector('.slider_list__wrapper');
-    let srcArray = [src1, src2, src3, src4];
-    let sliderButton;
-    for (i = 0; i < number; i++) {
-        // createElement with id and "onclick=el.src${i}"
-        // добавь его в конец блока-родителя
-        // при закрытии окна удалить эти блоки
-        sliderButton = createElement(`
-        
-        <button class="slider_list__button" onclick="addSrc(srcArray[i])"></button> 
+
+    for (i = 1; i <= number; i++) {
+
+        let src = arguments[i];
+        let sliderButton = createElement(`
+        <button class="slider_list__button"></button> 
         `);
-        console.log(srcArray[i]);
+
         sliderButtons.append(sliderButton);
+
+        sliderButton.onclick = function (e) {
+            addSrc(src);
+
+            // Переназначаю переменную и добавляю стили кнопкам
+            sliderButton = document.querySelectorAll('.slider_list__button');
+
+            sliderButton.forEach(el => {
+                el.classList.remove('slider_list__button_active');
+            })
+
+            this.classList.add('slider_list__button_active');
+        }
+    }
+    // Добавляю стиль первой кнопке в списке для активной ссылки
+    sliderButtons.firstElementChild.classList.add('slider_list__button_active');
+}
+
+function removeSliderButtons() {
+    while (sliderButtons.firstChild) {
+        sliderButtons.removeChild(sliderButtons.firstChild);
     }
 }
 
+function addSrc(src) {
 
-
-
-// function appendBlockWithVideo(src) {
-//     let videoList = createElement(`
-//             <iframe class="modal_video" src="${src}" width height
-//             frameborder="0"
-//             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-//             allowfullscreen></iframe>
-//     `)
-
-//     modalVideoPlayerWrapper.append(videoList);
-// }
-
-function addSrc(src, action) {
-    // let videoInModal = document.querySelector('.vimeo_block');
-    videoInModal.src = src;
-
-    openModalOrClose(action);
+    let partOfSrc = src.substr(32, 8);
+    // Check numbers in src
+    if (videoInModal.src.substr(32, 8) !== partOfSrc) {
+        videoInModal.src = src;
+    }
 }
-
-
 
 document.body.addEventListener('click', (e) => {
     let videoCloseButton = document.querySelector('.modal_video__btn_close');
     let modalOverlay = document.querySelector('.modal_video__overlay');
     let videoCard = document.querySelectorAll('.video__card');
-    // let videoInModal = document.querySelector('.vimeo_block')
 
     // Modal Video manipulation
 
     videoCard.forEach(el => {
         if (el === e.target) {
+            if (el.id === 'soup_station') {
 
-            if (el.id === '12monkeys') {
-                addSrc('https://player.vimeo.com/video/474605466?title=0&byline=0&portrait=0"', 'openning');
+                addSrc('https://player.vimeo.com/video/477094807?title=0&byline=0&portrait=0"');
                 openModalOrClose('openning');
-            }
-            // else if (el.id === 'admiral') {
 
-            //     addSrc('https://player.vimeo.com/video/474605466?autoplay=1&title=0&byline=0&portrait=0"', 'openning');
-            // }
-            else if (el.id === 'atelier') {
-                addSliderButtons(3, 'https://player.vimeo.com/video/474657541?title=0&byline=0&portrait=0"', 'https://player.vimeo.com/video/474657541?autoplay=1&title=0&byline=0&portrait=0"', 'https://player.vimeo.com/video/474657541?autoplay=1&title=0&byline=0&portrait=0"');
-                // addSrc('https://player.vimeo.com/video/474657541?autoplay=1&title=0&byline=0&portrait=0"', 'openning');
+            } else if (el.id === 'foundation') {
+
+                addSrc('https://player.vimeo.com/video/477091874?title=0&byline=0&portrait=0"');
                 openModalOrClose('openning');
+
+            } else if (el.id === '12monkeys') {
+
+                addSrc('https://player.vimeo.com/video/474605466?title=0&byline=0&portrait=0"');
+                openModalOrClose('openning');
+
+            } else if (el.id === 'atelier') {
+
+                addSrc('https://player.vimeo.com/video/474657541?title=0&byline=0&portrait=0"');
+                addSliderButtons(3, 'https://player.vimeo.com/video/474657541?title=0&byline=0&portrait=0"',
+                    'https://player.vimeo.com/video/474657079?&title=0&byline=0&portrait=0"',
+                    'https://player.vimeo.com/video/474656466?&title=0&byline=0&portrait=0"');
+                openModalOrClose('openning');
+
             } else if (el.id === 'barly') {
-                addSrc('https://player.vimeo.com/video/474603570?title=0&byline=0&portrait=0"', 'openning');
+
+                addSrc('https://player.vimeo.com/video/474603570?title=0&byline=0&portrait=0"', );
+                openModalOrClose('openning');
+
             } else if (el.id === 'belenko') {
-                addSrc('https://player.vimeo.com/video/474604827?title=0&byline=0&portrait=0"', 'openning');
+
+                addSrc('https://player.vimeo.com/video/474604827?title=0&byline=0&portrait=0"');
+                openModalOrClose('openning');
+
             } else if (el.id === 'bella') {
-                addSrc('https://player.vimeo.com/video/474601134?title=0&byline=0&portrait=0"', 'openning');
+
+                addSrc('https://player.vimeo.com/video/474599041?title=0&byline=0&portrait=0"');
+                addSliderButtons(4, 'https://player.vimeo.com/video/474599041?title=0&byline=0&portrait=0"',
+                    'https://player.vimeo.com/video/474600155?title=0&byline=0&portrait=0"',
+                    'https://player.vimeo.com/video/474600615?title=0&byline=0&portrait=0"',
+                    'https://player.vimeo.com/video/474601134?title=0&byline=0&portrait=0"'
+                );
+                openModalOrClose('openning');
+
             } else if (el.id === 'highFive') {
-                addSrc('https://player.vimeo.com/video/474605979?title=0&byline=0&portrait=0"', 'openning');
+
+                addSrc('https://player.vimeo.com/video/474605979?title=0&byline=0&portrait=0"');
+                openModalOrClose('openning');
+
             } else if (el.id === 'labaratolya') {
-                addSrc('https://player.vimeo.com/video/474660602?title=0&byline=0&portrait=0"', 'openning');
+
+                addSrc('https://player.vimeo.com/video/474660602?title=0&byline=0&portrait=0"');
+                openModalOrClose('openning');
+
             } else if (el.id === 'madHeads') {
-                addSrc('https://player.vimeo.com/video/474603099?title=0&byline=0&portrait=0"', 'openning');
+
+                addSrc('https://player.vimeo.com/video/474601667?title=0&byline=0&portrait=0"');
+                addSliderButtons(3, 'https://player.vimeo.com/video/474601667?title=0&byline=0&portrait=0"',
+                    'https://player.vimeo.com/video/474602062?title=0&byline=0&portrait=0"',
+                    'https://player.vimeo.com/video/474603099?title=0&byline=0&portrait=0"');
+                openModalOrClose('openning');
+
             } else if (el.id === 'ofm') {
-                addSrc('https://player.vimeo.com/video/474658835?title=0&byline=0&portrait=0"', 'openning');
+
+                addSrc('https://player.vimeo.com/video/474658835?title=0&byline=0&portrait=0"');
+                openModalOrClose('openning');
+
             } else if (el.id === 'theFitz') {
-                addSrc('https://player.vimeo.com/video/474659330?title=0&byline=0&portrait=0"', 'openning');
+
+                addSrc('https://player.vimeo.com/video/474659330?title=0&byline=0&portrait=0"');
+                openModalOrClose('openning');
+
             } else if (el.id === 'twlv') {
+
                 addSrc('https://player.vimeo.com/video/474659144?title=0&byline=0&portrait=0"', 'openning');
+                openModalOrClose('openning');
+
             }
         }
     })
@@ -117,6 +165,7 @@ document.body.addEventListener('click', (e) => {
     if (e.target === videoCloseButton) {
 
         openModalOrClose('closing');
+        removeSliderButtons();
         setTimeout(() => {
             videoInModal.src = '';
         }, 500)
@@ -125,6 +174,7 @@ document.body.addEventListener('click', (e) => {
     } else if (e.target === modalOverlay) {
 
         openModalOrClose('closing');
+        removeSliderButtons();
         setTimeout(() => {
             videoInModal.src = '';
         }, 500)
@@ -137,6 +187,7 @@ document.body.addEventListener('keyup', (e) => {
 
     if (key == 27) {
         openModalOrClose('closing');
+        removeSliderButtons();
         setTimeout(() => {
             videoInModal.src = '';
         }, 500)
