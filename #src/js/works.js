@@ -1,14 +1,4 @@
-// var swiper = new Swiper('.swiper-container', {
-//     navigation: {
-//         nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev',
-//     },
-// });
-
-let videoInModal = document.querySelector('.vimeo_block');
-let sliderButtons = document.querySelector('.slider_list__wrapper');
-
-function openModalOrClose(value) {
+ function openModalOrClose(value) {
     let modalVideoPlayerWrapper = document.querySelector('.modal_video__wrapper');
 
     if (value === 'openning') {
@@ -32,6 +22,7 @@ function createElement(str) {
 
 function addSliderButtons(number, src1, src2, src3, src4) {
 
+    // Make buttons
     for (i = 1; i <= number; i++) {
 
         let src = arguments[i];
@@ -44,7 +35,6 @@ function addSliderButtons(number, src1, src2, src3, src4) {
         sliderButton.onclick = function (e) {
             addSrc(src);
 
-            // Переназначаю переменную и добавляю стили кнопкам
             sliderButton = document.querySelectorAll('.slider_list__button');
 
             sliderButton.forEach(el => {
@@ -54,7 +44,6 @@ function addSliderButtons(number, src1, src2, src3, src4) {
             this.classList.add('slider_list__button_active');
         }
     }
-    // Добавляю стиль первой кнопке в списке для активной ссылки
     sliderButtons.firstElementChild.classList.add('slider_list__button_active');
 }
 
@@ -76,11 +65,12 @@ function addSrc(src) {
 document.body.addEventListener('click', (e) => {
     let videoCloseButton = document.querySelector('.modal_video__btn_close');
     let modalOverlay = document.querySelector('.modal_video__overlay');
-    let videoCard = document.querySelectorAll('.video__card');
+    let videoImg = document.querySelectorAll('.video__img');
+
 
     // Modal Video manipulation
 
-    videoCard.forEach(el => {
+    videoImg.forEach(el => {
         if (el === e.target) {
             if (el.id === 'soup_station') {
 
@@ -168,7 +158,7 @@ document.body.addEventListener('click', (e) => {
         removeSliderButtons();
         setTimeout(() => {
             videoInModal.src = '';
-        }, 500)
+        }, 100)
 
 
     } else if (e.target === modalOverlay) {
@@ -177,7 +167,7 @@ document.body.addEventListener('click', (e) => {
         removeSliderButtons();
         setTimeout(() => {
             videoInModal.src = '';
-        }, 500)
+        }, 100)
 
     }
 })
@@ -190,6 +180,6 @@ document.body.addEventListener('keyup', (e) => {
         removeSliderButtons();
         setTimeout(() => {
             videoInModal.src = '';
-        }, 500)
+        }, 100)
     }
 })

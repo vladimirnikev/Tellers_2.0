@@ -1,0 +1,209 @@
+@media (min-width: 1500px) {
+    main {
+        .video__card {
+            min-height: 40vh;
+        }
+    }
+}
+
+@media (max-width: 1249px) {
+    .container {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .about__content {
+        .about_card__wrapper {
+            .card__title {
+                font-size: 31px;
+            }
+
+            .card__text {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    main {
+        .video_card__wrapper {
+            width: 100%;
+
+            // .video__card {
+            &::after {
+                opacity: 0.5;
+            }
+
+            // }
+
+            .video__logo {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+    }
+
+    .about__content {
+        .container {
+            justify-content: space-evenly;
+        }
+
+        .about__title {
+            font-size: 33px;
+            max-width: 233px;
+        }
+
+        .about_card__wrapper {
+            .card__img {
+                margin-top: 3px;
+            }
+
+            .card__title {
+                font-size: 25px;
+            }
+
+            .card__text {
+                font-size: 18px;
+                margin-top: 3px;
+            }
+
+            .card__link {
+                font-size: 15px;
+                margin: 3px 0 0 8px;
+            }
+        }
+
+        .main__text_wrapper {
+            padding: 5px 12px 5px 5px;
+            max-width: 204px;
+
+            .main__text {
+                font-size: 28px;
+            }
+        }
+    }
+}
+
+@media(max-width: 800px) {
+    main {
+        .video_card__wrapper {
+            max-height: 330px;
+        }
+    }
+}
+
+@media(max-width: 725px) {
+
+    // About
+    .about__content {
+        .about__title {
+            font-size: 45px;
+            max-width: 319px;
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+
+        .content__wrapper {
+            flex-direction: column;
+            align-items: center;
+            margin-top: 60px;
+
+            .about_card__wrapper {
+                max-width: 350px;
+                text-align: center;
+                padding-bottom: 60px;
+                transform: translate(0, 0);
+                opacity: 1;
+
+                &:first-of-type {
+                    order: 2;
+                    margin-top: 0;
+                }
+
+                &:last-of-type {
+                    order: 3;
+                }
+
+                .card__title {
+                    font-size: 40px;
+                }
+
+                .card__text {
+                    font-size: 28px;
+                    margin-top: 10px;
+                }
+
+                .card__img {
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        .main__text_wrapper {
+            max-width: 300px;
+            transform: translate(0, 0);
+            opacity: 1;
+
+            .main__text {
+                font-size: 40px;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    header {
+        position: static;
+
+        .container {
+            flex-direction: column;
+
+            ul {
+                margin-top: 35px;
+
+                li:first-of-type {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+
+    main {
+        margin-top: 0;
+
+        .video_card__wrapper {
+            max-height: 200px;
+
+            .video__logo {
+                max-width: 200px;
+                max-height: 150px;
+            }
+        }
+    }
+
+    footer {
+        .footer__link {
+            font-size: 21px;
+        }
+    }
+
+    // About
+    .about__content {
+        .about__title {
+            font-size: 38px;
+            max-width: 270px;
+        }
+
+        .about_card__wrapper {
+            .card__title {
+                font-size: 30px;
+            }
+
+            .card__text {
+                font-size: 21px;
+            }
+        }
+    }
+}

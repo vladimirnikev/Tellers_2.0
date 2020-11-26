@@ -1,5 +1,5 @@
 {
-  "name": "tellers_2.0",
+  "name": "tellers2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,21 +8,38 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vladimirnikev/Tellers_2.0.git"
+    "url": "git+https://github.com/vladimirnikev/Tellers2.git"
   },
   "author": "Vladimir Nikev",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vladimirnikev/Tellers_2.0/issues"
+    "url": "https://github.com/vladimirnikev/Tellers2/issues"
   },
-  "homepage": "https://github.com/vladimirnikev/Tellers_2.0#readme",
+  "homepage": "https://github.com/vladimirnikev/Tellers2#readme",
   "dependencies": {
-    "gulp": "^4.0.2",
     "request": "^2.88.2"
   },
   "devDependencies": {
+    "autoprefixer": "^10.0.2",
+    "browser-sync": "^2.26.13",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-file-include": "^2.2.2",
+    "gulp-fonter": "^0.3.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-watch": "^5.0.1"
+    "gulp-ttf2woff": "^1.1.1",
+    "gulp-ttf2woff2": "^3.0.0",
+    "gulp-uglify-es": "^2.0.0",
+    "gulp-watch": "^5.0.1",
+    "gulp-webp": "^4.0.1",
+    "gulp-webp-html": "^1.0.2",
+    "gulp-webpcss": "^1.1.1",
+    "webp-converter": "^2.2.3"
   }
 }
