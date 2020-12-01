@@ -1,20 +1,27 @@
+/* для понятности лучше назвать функцию */
 window.onload = function () {
 
-    let mainCard = document.querySelectorAll('.about_card__wrapper');
-    let mainText = document.querySelector('.main__text_wrapper');
-    let mainTitle = document.querySelector('.about__title');
+    /* querySelectorAll возвращает массив узлов => логичнее назвать переменную в множественном числе */
+    let cards = document.querySelectorAll('.about_card__wrapper');
+    /* в контексе фунции не обязательно писать main. если б у тебя был, например, secondaryText, тогда ладно, а так... */
+    let text = document.querySelector('.main__text_wrapper');
+    let title = document.querySelector('.about__title');
 
-    for (i = 0; i < mainCard.length; i++) {
-        appendCard(mainCard[i], 800 + (i * 400));
+    /* https://developer.mozilla.org/uk/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach */
+    /* https://developer.mozilla.org/uk/docs/Web/JavaScript/Reference/Statements/for...of */
+    /* это поудобнее будет */
+    for (let i = 0; i < cards.length; i++) {
+        appendCard(cards[i], 800 + (i * 400));
     }
 
-    appendCard(mainTitle, 400);
-    appendCard(mainText, 2000);
+    appendCard(title, 400);
+    appendCard(text, 2000);
 }
 
-function appendCard(e, delay) {
+/* e - обычно используется для обозначения события */
+function appendCard(element, delay) {
 
         setTimeout(() => {
-            e.classList.add('about_active');
+            element.classList.add('about_active');
         }, delay)
 }

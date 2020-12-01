@@ -1,8 +1,13 @@
+/* open or close === toggle */
  function openModalOrClose(value) {
+     /*
+     тут можно проще.
+     делать проверку modalVideoPlayerWrapper.classList.contains('active') вместо передачи параметра
+     * */
+
     let modalVideoPlayerWrapper = document.querySelector('.modal_video__wrapper');
 
     if (value === 'openning') {
-
         modalVideoPlayerWrapper.classList.add('active');
         document.body.style.overflow = 'hidden';
 
@@ -14,16 +19,21 @@
 }
 
 function createElement(str) {
+     /* тут можно было передавать сразу тег аргументом */
+     /* создавать элемент и его же возвращать */
+    /* но тогда можно сразу вызывать document.createElement('тег') вместо этой ф-ии ) */
     let element = document.createElement('div');
 
     element.innerHTML = str;
     return element.firstElementChild;
 }
 
+// тут можно было передавать только массив из ссылок (links)
 function addSliderButtons(number, src1, src2, src3, src4) {
 
     // Make buttons
-    for (i = 1; i <= number; i++) {
+    // for (let i = 0; i < links.length; i++) ...
+    for (let i = 1; i <= number; i++) {
 
         let src = arguments[i];
         let sliderButton = createElement(`
@@ -65,13 +75,15 @@ function addSrc(src) {
 document.body.addEventListener('click', (e) => {
     let videoCloseButton = document.querySelector('.modal_video__btn_close');
     let modalOverlay = document.querySelector('.modal_video__overlay');
-    let videoImg = document.querySelectorAll('.video__img');
+    let videoImg = document.querySelectorAll('.video__img'); // imageS
 
 
     // Modal Video manipulation
 
     videoImg.forEach(el => {
         if (el === e.target) {
+
+            //https://learn.javascript.ru/switch
             if (el.id === 'soup_station') {
 
                 addSrc('https://player.vimeo.com/video/477094807?title=0&byline=0&portrait=0"');
@@ -173,9 +185,10 @@ document.body.addEventListener('click', (e) => {
 })
 
 document.body.addEventListener('keyup', (e) => {
+    // https://learn.javascript.ru/destructuring
     let key = e.keyCode;
 
-    if (key == 27) {
+    if (key === 27) {
         openModalOrClose('closing');
         removeSliderButtons();
         setTimeout(() => {
