@@ -1,17 +1,12 @@
-/* open or close === toggle */
- function openModalOrClose(value) {
-     /*
-     тут можно проще.
-     делать проверку modalVideoPlayerWrapper.classList.contains('active') вместо передачи параметра
-     * */
+function openModalOrClose(value) {
 
     let modalVideoPlayerWrapper = document.querySelector('.modal_video__wrapper');
 
-    if (value === 'openning') {
+    if (!modalVideoPlayerWrapper.classList.contains('active')) {
         modalVideoPlayerWrapper.classList.add('active');
         document.body.style.overflow = 'hidden';
 
-    } else if (value === 'closing') {
+    } else if (modalVideoPlayerWrapper.classList.contains('active')) {
 
         modalVideoPlayerWrapper.classList.remove('active');
         document.body.style.overflow = '';
@@ -19,26 +14,20 @@
 }
 
 function createElement(str) {
-     /* тут можно было передавать сразу тег аргументом */
-     /* создавать элемент и его же возвращать */
-    /* но тогда можно сразу вызывать document.createElement('тег') вместо этой ф-ии ) */
     let element = document.createElement('div');
 
     element.innerHTML = str;
     return element.firstElementChild;
 }
 
-// тут можно было передавать только массив из ссылок (links)
 function addSliderButtons(number, src1, src2, src3, src4) {
 
-    // Make buttons
-    // for (let i = 0; i < links.length; i++) ...
     for (let i = 1; i <= number; i++) {
 
         let src = arguments[i];
-        let sliderButton = createElement(`
-        <button class="slider_list__button"></button> 
-        `);
+
+        let sliderButton = document.createElement('button')
+        sliderButton.setAttribute('class', 'slider_list__button')
 
         sliderButtons.append(sliderButton);
 
@@ -82,91 +71,80 @@ document.body.addEventListener('click', (e) => {
 
     videoImg.forEach(el => {
         if (el === e.target) {
-
-            //https://learn.javascript.ru/switch
-            if (el.id === 'soup_station') {
-
-                addSrc('https://player.vimeo.com/video/477094807?title=0&byline=0&portrait=0"');
-                openModalOrClose('openning');
-
-            } else if (el.id === 'foundation') {
-
-                addSrc('https://player.vimeo.com/video/477091874?title=0&byline=0&portrait=0"');
-                openModalOrClose('openning');
-
-            } else if (el.id === '12monkeys') {
-
-                addSrc('https://player.vimeo.com/video/474605466?title=0&byline=0&portrait=0"');
-                openModalOrClose('openning');
-
-            } else if (el.id === 'atelier') {
-
-                addSrc('https://player.vimeo.com/video/474657541?title=0&byline=0&portrait=0"');
-                addSliderButtons(3, 'https://player.vimeo.com/video/474657541?title=0&byline=0&portrait=0"',
-                    'https://player.vimeo.com/video/474657079?&title=0&byline=0&portrait=0"',
-                    'https://player.vimeo.com/video/474656466?&title=0&byline=0&portrait=0"');
-                openModalOrClose('openning');
-
-            } else if (el.id === 'barly') {
-
-                addSrc('https://player.vimeo.com/video/474603570?title=0&byline=0&portrait=0"', );
-                openModalOrClose('openning');
-
-            } else if (el.id === 'belenko') {
-
-                addSrc('https://player.vimeo.com/video/474604827?title=0&byline=0&portrait=0"');
-                openModalOrClose('openning');
-
-            } else if (el.id === 'bella') {
-
-                addSrc('https://player.vimeo.com/video/474599041?title=0&byline=0&portrait=0"');
-                addSliderButtons(4, 'https://player.vimeo.com/video/474599041?title=0&byline=0&portrait=0"',
-                    'https://player.vimeo.com/video/474600155?title=0&byline=0&portrait=0"',
-                    'https://player.vimeo.com/video/474600615?title=0&byline=0&portrait=0"',
-                    'https://player.vimeo.com/video/474601134?title=0&byline=0&portrait=0"'
-                );
-                openModalOrClose('openning');
-
-            } else if (el.id === 'highFive') {
-
-                addSrc('https://player.vimeo.com/video/474605979?title=0&byline=0&portrait=0"');
-                openModalOrClose('openning');
-
-            } else if (el.id === 'labaratolya') {
-
-                addSrc('https://player.vimeo.com/video/474660602?title=0&byline=0&portrait=0"');
-                openModalOrClose('openning');
-
-            } else if (el.id === 'madHeads') {
-
-                addSrc('https://player.vimeo.com/video/474601667?title=0&byline=0&portrait=0"');
-                addSliderButtons(3, 'https://player.vimeo.com/video/474601667?title=0&byline=0&portrait=0"',
-                    'https://player.vimeo.com/video/474602062?title=0&byline=0&portrait=0"',
-                    'https://player.vimeo.com/video/474603099?title=0&byline=0&portrait=0"');
-                openModalOrClose('openning');
-
-            } else if (el.id === 'ofm') {
-
-                addSrc('https://player.vimeo.com/video/474658835?title=0&byline=0&portrait=0"');
-                openModalOrClose('openning');
-
-            } else if (el.id === 'theFitz') {
-
-                addSrc('https://player.vimeo.com/video/474659330?title=0&byline=0&portrait=0"');
-                openModalOrClose('openning');
-
-            } else if (el.id === 'twlv') {
-
-                addSrc('https://player.vimeo.com/video/474659144?title=0&byline=0&portrait=0"', 'openning');
-                openModalOrClose('openning');
-
+            switch (el.id) {
+                case 'soup_station':
+                    addSrc('https://player.vimeo.com/video/477094807?title=0&byline=0&portrait=0"');
+                    openModalOrClose();
+                    break;
+                case 'foundation':
+                    addSrc('https://player.vimeo.com/video/477091874?title=0&byline=0&portrait=0"');
+                    addSliderButtons(3, 'https://player.vimeo.com/video/477091874?title=0&byline=0&portrait=0"',
+                        'https://player.vimeo.com/video/489354217?title=0&byline=0&portrait=0"',
+                        'https://player.vimeo.com/video/496857948?title=0&byline=0&portrait=0"')
+                    openModalOrClose();
+                    break;
+                case '12monkeys':
+                    addSrc('https://player.vimeo.com/video/474605466?title=0&byline=0&portrait=0"');
+                    openModalOrClose();
+                    break;
+                case 'atelier':
+                    addSrc('https://player.vimeo.com/video/474657541?title=0&byline=0&portrait=0"');
+                    addSliderButtons(3, 'https://player.vimeo.com/video/474657541?title=0&byline=0&portrait=0"',
+                        'https://player.vimeo.com/video/474657079?&title=0&byline=0&portrait=0"',
+                        'https://player.vimeo.com/video/474656466?&title=0&byline=0&portrait=0"');
+                    openModalOrClose();
+                    break;
+                case 'barly':
+                    addSrc('https://player.vimeo.com/video/474603570?title=0&byline=0&portrait=0"',);
+                    openModalOrClose();
+                    break;
+                case 'belenko':
+                    addSrc('https://player.vimeo.com/video/474604827?title=0&byline=0&portrait=0"');
+                    openModalOrClose();
+                    break;
+                case 'bella':
+                    addSrc('https://player.vimeo.com/video/474599041?title=0&byline=0&portrait=0"');
+                    addSliderButtons(4, 'https://player.vimeo.com/video/474599041?title=0&byline=0&portrait=0"',
+                        'https://player.vimeo.com/video/474600155?title=0&byline=0&portrait=0"',
+                        'https://player.vimeo.com/video/474600615?title=0&byline=0&portrait=0"',
+                        'https://player.vimeo.com/video/474601134?title=0&byline=0&portrait=0"'
+                    );
+                    openModalOrClose();
+                    break;
+                case 'highFive':
+                    addSrc('https://player.vimeo.com/video/474605979?title=0&byline=0&portrait=0"');
+                    openModalOrClose();
+                    break;
+                case 'labaratolya':
+                    addSrc('https://player.vimeo.com/video/474660602?title=0&byline=0&portrait=0"');
+                    openModalOrClose();
+                    break;
+                case 'madHeads':
+                    addSrc('https://player.vimeo.com/video/474601667?title=0&byline=0&portrait=0"');
+                    addSliderButtons(3, 'https://player.vimeo.com/video/474601667?title=0&byline=0&portrait=0"',
+                        'https://player.vimeo.com/video/474602062?title=0&byline=0&portrait=0"',
+                        'https://player.vimeo.com/video/474603099?title=0&byline=0&portrait=0"');
+                    openModalOrClose();
+                    break;
+                case 'ofm':
+                    addSrc('https://player.vimeo.com/video/474658835?title=0&byline=0&portrait=0"');
+                    openModalOrClose();
+                    break;
+                case 'theFitz':
+                    addSrc('https://player.vimeo.com/video/474659330?title=0&byline=0&portrait=0"');
+                    openModalOrClose();
+                    break;
+                case 'twlv':
+                    addSrc('https://player.vimeo.com/video/474659144?title=0&byline=0&portrait=0"', 'openning');
+                    openModalOrClose();
+                    break;
             }
         }
     })
 
     if (e.target === videoCloseButton) {
 
-        openModalOrClose('closing');
+        openModalOrClose();
         removeSliderButtons();
         setTimeout(() => {
             videoInModal.src = '';
@@ -175,7 +153,7 @@ document.body.addEventListener('click', (e) => {
 
     } else if (e.target === modalOverlay) {
 
-        openModalOrClose('closing');
+        openModalOrClose();
         removeSliderButtons();
         setTimeout(() => {
             videoInModal.src = '';
@@ -185,11 +163,9 @@ document.body.addEventListener('click', (e) => {
 })
 
 document.body.addEventListener('keyup', (e) => {
-    // https://learn.javascript.ru/destructuring
     let key = e.keyCode;
-
     if (key === 27) {
-        openModalOrClose('closing');
+        openModalOrClose();
         removeSliderButtons();
         setTimeout(() => {
             videoInModal.src = '';
