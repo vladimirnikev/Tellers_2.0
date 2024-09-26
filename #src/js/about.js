@@ -1,20 +1,25 @@
 window.onload = function () {
 
-    let mainCard = document.querySelectorAll('.about_card__wrapper');
-    let mainText = document.querySelector('.main__text_wrapper');
-    let mainTitle = document.querySelector('.about__title');
+    let cards = document.querySelectorAll('.about_card__wrapper');
+    let text = document.querySelector('.main__text_wrapper');
+    let title = document.querySelector('.about__title');
 
-    for (i = 0; i < mainCard.length; i++) {
-        appendCard(mainCard[i], 800 + (i * 400));
+    for (let i = 0; i < cards.length; i++) {
+        appendCard(cards[i], 800 + (i * 400));
     }
 
-    appendCard(mainTitle, 400);
-    appendCard(mainText, 2000);
+    // for (let element of cards) {
+    //     console.log(cards)
+    //     appendCard(element, 800 + (element.index * 400));
+    // }
+
+    appendCard(title, 400);
+    appendCard(text, 2000);
 }
 
-function appendCard(e, delay) {
+function appendCard(element, delay) {
 
-        setTimeout(() => {
-            e.classList.add('about_active');
-        }, delay)
+    setTimeout(() => {
+        element.classList.add('about_active');
+    }, delay)
 }

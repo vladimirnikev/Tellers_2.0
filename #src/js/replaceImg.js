@@ -8,8 +8,8 @@ const imgObserver = new IntersectionObserver((entries, imgObserver) => {
     const img = entry.target;
     img.src = img.src.replace("min", "max");
 
-    if (document.body.classList.contains('webp')){
-        img.src = img.src.replace("png", "webp");
+    if (document.body.classList.contains('webp')) {
+      img.src = img.src.replace("png", "webp");
     }
 
     imgObserver.unobserve(entry.target);
